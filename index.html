@@ -1,60 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Bestill kinobilletter</title>
-    </head>
-    <script src="oblig1-java.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>Kino</title>
     <style>
-        p{
-            display: inline-block;
-            color: red;
-        }
-        input{
-            margin-left: 15px;
-        }
-        button{
-            margin-top: 15px;
-        }
-        table, th, td{
-            border: 1px black solid;
-        }
+      input{
+          margin-left: 15px;
+      }
 
-        table{
-            border-collapse: collapse;
-        }
     </style>
-    <body>
-        <h1>Bestillinger av kinobilletter</h1>
-        <label for="slctFilm">Velg film her</label>
-        <select id="slctFilm">
-            <option>Velg Film</option>
-            <option>Black Panther</option>
-            <option>Fast & Furious 9</option>
-            <option>The Batman</option>
-            <option>Avengers end game</option>
-            <option>Spider man</option>
-        </select>
-        <p id="nullFilm"></p><br>
+  </head>
+  <body>
+  
+<h1>Bestilling av kinobiletter</h1>
 
-        <label for="inpAntall">Antall<input id="inpAntall" type="number" min="1"  style="width: 50px"></label>
-        <p id="nullAntall"></p> <br>
-        <label for="inpFornavn">Fornavn<input id="inpFornavn" type="text"></label>
-        <p id="nullFornavn"></p> <br>
-        <label for="inpEtternavn">Etternavn<input id="inpEtternavn" type="text"></label>
-        <p id="nullEtternavn"></p> <br>
-        <label for="inpTelefonnr">Telefonnr<input id="inpTelefonnr" type="text"></label>
-        <p id="nullTelefonnr"></p><br>
-        <label for="inpEpost">Epost<input id="inpEpost" type="email"></label>
-        <p id="nullEpost"></p><br>
+<form id="ticketForm">
+    <div>
+    <label for="velgFilm">Velg film:</label>
+    <select id="velgFilm" name="velgFilm" required>
+        <option value="">Velg film her</option>
+        <option value="The Godfather">The Godfather</option>
+        <option value="Forrest Gump">Forrest Gump</option>
+        <option value="Inception">Inception</option>
+        <option value="Interstellar">Interstellar</option>
+        <option value="The Matrix">The Matrix</option>
+    </select>
+    </div>
+    <br>
 
-        <button onclick="kjopBillett()">Kjøp billett</button>
+    <div class="antall">
+    <label for="antall">Antall</label>
+    <input type="number" name="antall" id="antall" min="1" style="width: 50px" required>
+    </div>
+    <br>
 
-        <h2>Alle biletter</h2>
+    <div>
+    <label for="fornavn">Fornavn</label>
+    <input type="text" id="fornavn" required><br>
 
-        <table id="tblFilmer"></table>
+    <label for="etternavn">Etternavn</label>
+    <input type="text" id="etternavn" required><br>
 
-        <button id="slettKnp" onclick="slettBillett()">Slett alle billettene</button>
+    <label for="tlf">Telefonnr</label>
+    <input type="text" id="tlf" required><br>
+    
+  <label for="epost">Epost</label>
+  <input type="email" id="epost" name="epost" required><br>
 
-    </body>
+        <button type="submit">Kjøp billett</button>
+    </div>
+</form>
+
+<h2>Alle billetter</h2>
+<table id="ticketsTable">
+    <tr>
+        <th>Film</th>
+        <th>Antall</th>
+        <th>Fornavn</th>
+        <th>Etternavn</th>
+        <th>Telefonnr</th>
+        <th>Epost</th>
+    </tr>
+    <!-- Billett radene blir lagt til her -->
+</table>
+
+<button onclick="slettBilletter()">Slett alle billettene</button>
+
+<script src="script.js"></script>
+</body>
 </html>
