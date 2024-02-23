@@ -9,17 +9,37 @@ document.getElementById('ticketForm').onsubmit = function(event) {
         }
 };
 
-function validateForm() {
-    // Validerer at alle feltene i skjemaet er fylt ut
-    let inputs = document.querySelectorAll('#ticketForm input, #ticketForm select');
-    for (let input of inputs) {
-        if (input.value === '') {
-            alert('Vennligst fyll ut alle feltene.');
-            return false;
-        }
+    function validateForm() {
+        let isValid = true;
+        let regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        let regexPhone = /^[0-9]{8}$/;
+
+        document.querySelectorAll('#ticketForm input, #ticketForm select').forEach(function(input) {
+            // Fjern tidligere satt 'invalid' klasse
+            input.classList.remove('invalid');
+
+            // Sjekk for tomt felt
+            if (!input.value) {
+                input.classList.add('invalid');
+                isValid = false;
+            }
+
+            // Sjekk for gyldig e-post
+            if (input.type === "email" && !regexEmail.test(input.value)) {
+                input.classList.add('invalid');
+                isValid = false;
+            }
+
+            // Sjekk for gyldig telefonnummer
+            if (input.id === "tlf" && !regexPhone.test(input.value)) {
+                input.classList.add('invalid');
+                isValid = false;
+            }
+        });
+
+        return isValid;
     }
-    return true;
-}
+
 
 function addToArray(){
     let fornavn = document.getElementById("fornavn").value;
