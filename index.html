@@ -7,7 +7,9 @@
       input{
           margin-left: 15px;
       }
-
+      .invalid {
+          border: 2px solid red;
+      }
     </style>
   </head>
   <body>
@@ -17,7 +19,7 @@
 <form id="ticketForm">
     <div>
     <label for="velgFilm">Velg film:</label>
-    <select id="velgFilm" name="velgFilm" required>
+    <select id="velgFilm" name="velgFilm">
         <option value="">Velg film her</option>
         <option value="The Godfather">The Godfather</option>
         <option value="Forrest Gump">Forrest Gump</option>
@@ -30,22 +32,22 @@
 
     <div class="antall">
     <label for="antall">Antall</label>
-    <input type="number" name="antall" id="antall" min="1" style="width: 50px" required>
+    <input type="number" name="antall" id="antall" min="1" style="width: 50px" >
     </div>
     <br>
 
     <div>
     <label for="fornavn">Fornavn</label>
-    <input type="text" id="fornavn" required><br>
+    <input type="text" id="fornavn" ><br>
 
     <label for="etternavn">Etternavn</label>
-    <input type="text" id="etternavn" required><br>
+    <input type="text" id="etternavn" ><br>
 
     <label for="tlf">Telefonnr</label>
-    <input type="text" id="tlf" required><br>
+    <input type="text" id="tlf" ><br>
     
   <label for="epost">Epost</label>
-  <input type="email" id="epost" name="epost" required><br>
+  <input type="email" id="epost" name="epost" ><br>
 
         <button type="submit">Kjøp billett</button>
     </div>
@@ -61,7 +63,7 @@
         <th>Telefonnr</th>
         <th>Epost</th>
     </tr>
-    <!-- Billett radene blir lagt til her -->
+    <!-- Ticket rows will be added here -->
 </table>
 
 <button onclick="slettBilletter()">Slett alle billettene</button>
